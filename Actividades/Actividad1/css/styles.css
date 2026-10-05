@@ -1,0 +1,57 @@
+body { background: #f4f5f7; }
+
+.pokeball {
+  display: inline-block;
+  width: 1.1em; height: 1.1em;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: linear-gradient(#fff 0 42%, #212529 42% 58%, #fff 58% 100%);
+  vertical-align: -0.15em;
+  margin-right: .25rem;
+}
+
+/* Tarjetas de la lista */
+.poke-card {
+  transition: transform .15s ease, box-shadow .15s ease;
+  border: 0;
+}
+.poke-card:hover, .poke-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 .75rem 1.25rem rgba(0,0,0,.15) !important;
+}
+.poke-card .poke-img-wrap {
+  background: radial-gradient(circle at 50% 60%, #fff 0, #e9ecef 100%);
+  border-radius: .375rem .375rem 0 0;
+  padding: .75rem;
+}
+.poke-card img { width: 100%; max-width: 160px; aspect-ratio: 1; object-fit: contain; }
+.poke-num { font-size: .8rem; color: #6c757d; }
+
+/* Insignias de tipo */
+.badge-tipo { color: #fff; text-transform: capitalize; font-weight: 500; }
+.tipo-planta { background: #4caf50; }
+.tipo-veneno { background: #9c27b0; }
+.tipo-fuego { background: #f4511e; }
+.tipo-agua { background: #1e88e5; }
+.tipo-electrico { background: #f9a825; color: #212529; }
+.tipo-normal { background: #8d8d7a; }
+.tipo-hada { background: #ec6fb0; }
+.tipo-fantasma { background: #5c4a9c; }
+.tipo-psiquico { background: #e91e63; }
+.tipo-volador { background: #7e9cd8; }
+.tipo-hielo { background: #26b5c9; }
+
+/* Detalle */
+.detalle-hero {
+  background: radial-gradient(circle at 50% 55%, #fff 0, #e9ecef 100%);
+  border-radius: .5rem;
+  padding: 1rem;
+}
+.detalle-hero img { width: 100%; max-width: 320px; }
+.stat-label { width: 6.5rem; font-size: .9rem; }
+.stat-value { width: 2.5rem; text-align: right; font-weight: 600; }
+.progress { height: .8rem; }
+
+@media (max-width: 575.98px) {
+  .stat-label { width: 5rem; font-size: .8rem; }
+}
