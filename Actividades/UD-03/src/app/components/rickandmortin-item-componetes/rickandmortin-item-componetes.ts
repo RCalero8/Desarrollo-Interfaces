@@ -8,10 +8,5 @@ import { Episode } from '../../interfaces/rickandmortin-list-response';
   templateUrl: './rickandmortin-item-componetes.html',
 })
 export class RickandmortinItemComponetes {
-  episode = input<Episode>();
-
-  constructor() {
-    console.log(this.episode);
-    debugger;
-  }
+  episode = input.required<Episode>();
 }

@@ -1,1 +1,19 @@
-<p>rickandmortin-list-componetes works!</p>
+<div class="container my-4">
+
+  <h2 class="mb-3">Episodios de Rick and Morty</h2>
+
+  <button class="btn btn-primary mb-4" (click)= "loadRickandMortinList()">
+    Cargar episodios
+  </button>
+
+  <div class="row g-3">
+    @for(epi of rickandmortinList; track epi.name) {
+      <app-rickandmortin-item-componetes [episode]="epi"></app-rickandmortin-item-componetes>
+    } @empty {
+      <div class="col-12">
+        <div class="alert alert-info">Pulsa el botón para cargar los episodios.</div>
+      </div>
+    }
+  </div>
+
+</div>
