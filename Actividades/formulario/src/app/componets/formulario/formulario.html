@@ -1,0 +1,98 @@
+<div class="container my-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white py-2">
+      <h5 class="mb-0">Registro de usuario</h5>
+    </div>
+
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #registerForm="ngForm" class="small">
+
+        <div class="row g-3">
+
+          <!-- Fila 1 -->
+          <div class="col-12 col-md-4">
+            <label for="nombre" class="form-label mb-1">Nombre</label>
+            <input type="text" name="nombre" id="nombre" class="form-control form-control-sm"
+                   [(ngModel)]="user.nombre" required #nombre="ngModel">
+          </div>
+          <div class="col-12 col-md-4">
+            <label for="apellidos" class="form-label mb-1">Apellidos</label>
+            <input type="text" name="apellidos" id="apellidos" class="form-control form-control-sm"
+                   [(ngModel)]="user.apellidos" required #apellidos="ngModel">
+          </div>
+          <div class="col-12 col-md-4">
+            <label for="nif" class="form-label mb-1">NIF</label>
+            <input type="text" name="nif" id="nif" class="form-control form-control-sm"
+                   [(ngModel)]="user.nif" pattern="[0-9]{8}[A-Za-z]" #nif="ngModel">
+          </div>
+
+          <!-- Fila 2 -->
+          <div class="col-12 col-md-4">
+            <label for="email" class="form-label mb-1">Email</label>
+            <input type="email" name="email" id="email" class="form-control form-control-sm"
+                   [(ngModel)]="user.email" required #email="ngModel">
+          </div>
+          <div class="col-12 col-md-4">
+            <label for="telefono" class="form-label mb-1">Teléfono</label>
+            <input type="tel" name="telefono" id="telefono" class="form-control form-control-sm"
+                   [(ngModel)]="user.telefono" required #telefono="ngModel">
+          </div>
+          <div class="col-12 col-md-4">
+            <label class="form-label mb-1 d-block">Sexo</label>
+            <div class="form-check form-check-inline">
+              <input type="radio" id="hombre" name="sexo" value="Hombre"
+                     class="form-check-input" [(ngModel)]="user.sexo" required>
+              <label for="hombre" class="form-check-label">Hombre</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input type="radio" id="mujer" name="sexo" value="Mujer"
+                     class="form-check-input" [(ngModel)]="user.sexo" required>
+              <label for="mujer" class="form-check-label">Mujer</label>
+            </div>
+          </div>
+
+          <!-- Fila 3 -->
+          <div class="col-12 col-md-4">
+            <label for="comoConocio" class="form-label mb-1">¿Cómo conociste la página?</label>
+            <select id="comoConocio" name="comoConocio" class="form-select form-select-sm"
+                    [(ngModel)]="user.comoConocio" required>
+              <option value="" disabled>Selecciona una opción</option>
+              <option value="Buscando en Google">Buscando en Google</option>
+              <option value="A través de un amigo">A través de un amigo</option>
+              <option value="Por mi profesor">Por mi profesor</option>
+            </select>
+          </div>
+          <div class="col-12 col-md-4">
+            <label for="password" class="form-label mb-1">Contraseña</label>
+            <input type="password" id="password" name="password" class="form-control form-control-sm"
+                   [(ngModel)]="user.password" required minlength="6" #password="ngModel">
+          </div>
+          <div class="col-12 col-md-4">
+            <label for="confirmPassword" class="form-label mb-1">Confirmar contraseña</label>
+            <input type="password" id="confirmPassword" name="confirmPassword"
+                   class="form-control form-control-sm"
+                   [(ngModel)]="user.confirmPassword" required #confirmPassword="ngModel">
+          </div>
+
+          <!-- Términos y botón -->
+          <div class="col-12 col-md-8">
+            <div class="form-check">
+              <input type="checkbox" id="terminos" name="terminos" class="form-check-input"
+                     [(ngModel)]="user.aceptaTerminos" required>
+              <label for="terminos" class="form-check-label">
+                Acepto los términos y condiciones
+              </label>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 text-md-end">
+            <button type="submit" class="btn btn-primary btn-sm px-4"
+                    [disabled]="registerForm.invalid || user.password !== user.confirmPassword">
+              Registro
+            </button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
