@@ -1,0 +1,11 @@
+<article class="card h-100 shadow-sm">
+  <img [src]="drink().strDrinkThumb" [alt]="drink().strDrink" class="card-img-top" />
+  <div class="card-body">
+    <h3 class="card-title h5">{{ drink().strDrink }}</h3>
+    <p class="mb-2">
+      <span class="badge text-bg-primary me-1">{{ drink().strCategory }}</span>
+      <span class="badge text-bg-secondary">{{ drink().strAlcoholic }}</span>
+    </p>
+    <p class="card-text small">{{ drink().strInstructions }}</p>
+  </div>
+</article>

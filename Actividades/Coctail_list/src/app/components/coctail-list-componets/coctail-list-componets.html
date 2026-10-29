@@ -1,0 +1,12 @@
+<div class="container py-4">
+  <h2 class="mb-4">Catálogo de cócteles</h2>
+  <div class="row g-4">
+    @for (drink of coctailList; track drink.idDrink) {
+      <div class="col-12 col-md-6 col-lg-4">
+        <app-coctail-item-componets [drink]="drink" />
+      </div>
+    } @empty {
+      <p class="text-danger">⚠️ La lista 'coctailList' está vacía o la API no devolvió datos.</p>
+    }
+  </div>
+</div>

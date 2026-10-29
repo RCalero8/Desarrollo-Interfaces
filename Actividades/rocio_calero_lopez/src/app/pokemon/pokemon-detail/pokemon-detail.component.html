@@ -1,0 +1,41 @@
+<a routerLink="/pokemon" class="btn btn-outline-secondary mb-3">&larr; Volver</a>
+
+@if (pokemon(); as p) {
+  <div class="card shadow-sm">
+    <div class="row g-0">
+      <div class="col-md-5 text-center p-4">
+        <img [src]="image(p)" [alt]="p.name" class="img-fluid" style="max-height: 320px" />
+      </div>
+      <div class="col-md-7 p-4">
+        <small class="text-muted">#{{ p.id }}</small>
+        <h2 class="text-capitalize">{{ p.name }}</h2>
+        <p>
+          @for (t of p.types; track t.slot) {
+            <span class="badge bg-danger me-1 text-capitalize">{{ t.type.name }}</span>
+          }
+        </p>
+        <p class="mb-1"><strong>Altura:</strong> {{ p.height / 10 }} m</p>
+        <p><strong>Peso:</strong> {{ p.weight / 10 }} kg</p>
+
+        <h5>Habilidades</h5>
+        <ul>
+          @for (a of p.abilities; track a.ability.name) {
+            <li class="text-capitalize">{{ a.ability.name.replace('-', ' ') }} @if (a.is_hidden) { <em>(oculta)</em> }</li>
+          }
+        </ul>
+
+        <h5>Estadísticas base</h5>
+        @for (s of p.stats; track s.stat.name) {
+          <div class="d-flex align-items-center mb-1">
+            <span class="text-capitalize" style="width: 130px">{{ s.stat.name.replace('-', ' ') }}</span>
+            <div class="progress flex-grow-1" style="height: 14px">
+              <div class="progress-bar bg-danger" [style.width.%]="(s.base_stat / 255) * 100">{{ s.base_stat }}</div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+} @else {
+  <div class="text-center my-5"><div class="spinner-border text-danger"></div></div>
+}

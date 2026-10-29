@@ -1,0 +1,19 @@
+<h1 class="mb-4">Items</h1>
+
+@if (loading()) {
+  <div class="text-center my-5"><div class="spinner-border text-danger"></div></div>
+}
+
+<div class="row g-3">
+  @for (r of items(); track r.name) {
+    <div class="col-6 col-md-4 col-lg-3">
+      <app-item-item [item]="r" />
+    </div>
+  }
+</div>
+
+<div class="d-flex justify-content-between align-items-center mt-4">
+  <button class="btn btn-outline-danger" (click)="prev()" [disabled]="offset() === 0">Anterior</button>
+  <span>{{ offset() + 1 }} - {{ offset() + items().length }} de {{ count() }}</span>
+  <button class="btn btn-outline-danger" (click)="next()" [disabled]="offset() + limit >= count()">Siguiente</button>
+</div>

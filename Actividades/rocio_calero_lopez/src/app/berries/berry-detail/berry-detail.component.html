@@ -1,0 +1,30 @@
+<a routerLink="/berries" class="btn btn-outline-secondary mb-3">&larr; Volver</a>
+
+@if (berry(); as b) {
+  <div class="card shadow-sm">
+    <div class="row g-0">
+      <div class="col-md-4 text-center p-4">
+        <img [src]="image(b)" [alt]="b.name" style="width: 128px; image-rendering: pixelated" />
+      </div>
+      <div class="col-md-8 p-4">
+        <small class="text-muted">#{{ b.id }}</small>
+        <h2 class="text-capitalize">{{ b.name }} berry</h2>
+        <p class="mb-1"><strong>Tiempo de crecimiento:</strong> {{ b.growth_time }} h</p>
+        <p class="mb-1"><strong>Cosecha máxima:</strong> {{ b.max_harvest }}</p>
+        <p class="mb-1"><strong>Tamaño:</strong> {{ b.size }} mm</p>
+        <p class="mb-1"><strong>Suavidad:</strong> {{ b.smoothness }}</p>
+        <p class="mb-1"><strong>Sequedad del suelo:</strong> {{ b.soil_dryness }}</p>
+        <p><strong>Firmeza:</strong> <span class="text-capitalize">{{ b.firmness.name.replace('-', ' ') }}</span></p>
+
+        <h5>Sabores</h5>
+        @for (f of b.flavors; track f.flavor.name) {
+          <span class="badge me-1 text-capitalize" [class]="f.potency > 0 ? 'bg-danger' : 'bg-secondary'">
+            {{ f.flavor.name }}: {{ f.potency }}
+          </span>
+        }
+      </div>
+    </div>
+  </div>
+} @else {
+  <div class="text-center my-5"><div class="spinner-border text-danger"></div></div>
+}

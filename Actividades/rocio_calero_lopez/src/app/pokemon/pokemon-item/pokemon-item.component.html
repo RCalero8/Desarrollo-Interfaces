@@ -1,0 +1,9 @@
+<a [routerLink]="['/pokemon', id()]" class="text-decoration-none text-dark">
+  <div class="card h-100 text-center shadow-sm">
+    <img [src]="image()" [alt]="pokemon().name" class="card-img-top p-3" style="height: 160px; object-fit: contain" loading="lazy" />
+    <div class="card-body">
+      <small class="text-muted">#{{ id() }}</small>
+      <h5 class="card-title text-capitalize mb-0">{{ pokemon().name.replace('-', ' ') }}</h5>
+    </div>
+  </div>
+</a>

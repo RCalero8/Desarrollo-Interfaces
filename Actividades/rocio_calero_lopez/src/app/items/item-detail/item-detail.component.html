@@ -1,0 +1,31 @@
+<a routerLink="/items" class="btn btn-outline-secondary mb-3">&larr; Volver</a>
+
+@if (item(); as i) {
+  <div class="card shadow-sm">
+    <div class="row g-0">
+      <div class="col-md-4 text-center p-4">
+        @if (i.sprites.default) {
+          <img [src]="i.sprites.default" [alt]="i.name" style="width: 128px; image-rendering: pixelated" />
+        }
+      </div>
+      <div class="col-md-8 p-4">
+        <small class="text-muted">#{{ i.id }}</small>
+        <h2 class="text-capitalize">{{ i.name.replace('-', ' ') }}</h2>
+        <p class="mb-1"><strong>Categoría:</strong> <span class="text-capitalize">{{ i.category.name.replace('-', ' ') }}</span></p>
+        <p><strong>Coste:</strong> {{ i.cost }} ₽</p>
+
+        <h5>Efecto</h5>
+        <p>{{ effect(i) }}</p>
+
+        @if (i.attributes.length) {
+          <h5>Atributos</h5>
+          @for (a of i.attributes; track a.name) {
+            <span class="badge bg-danger me-1 text-capitalize">{{ a.name.replace('-', ' ') }}</span>
+          }
+        }
+      </div>
+    </div>
+  </div>
+} @else {
+  <div class="text-center my-5"><div class="spinner-border text-danger"></div></div>
+}
