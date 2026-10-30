@@ -1,0 +1,10 @@
+<div class="container">
+    <h1 class="display-1">Charcater Rick and Mortin</h1>
+    <div class="row g-4">
+        @for (item of characterList(); track item.id){
+        <div class="col-12 col-md-6 col-lg-4">
+            <app-character-item-componet [character]="item" (characterClicked)="openCharacterModal($event)"></app-character-item-componet>
+        </div>
+        }
+    </div>
+</div>
