@@ -2,19 +2,20 @@
     <h4 class="modal-title">{{ characterDetail?.name }}</h4>
     <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss()"></button>
 </div>
+@if (characterDetail) {
+    <div class="modal-body">
+        <div class="text-center mb-3">
+            <img [src]="characterDetail.image" class="img-fluid rounded" [alt]="characterDetail.name">
+        </div>
 
-<div class="modal-body" *ngIf="characterDetail">
-    <div class="text-center mb-3">
-        <img [src]="characterDetail.image" class="img-fluid rounded" [alt]="characterDetail.name">
+        <p><strong>Especie:</strong> {{ characterDetail.species }}</p>
+        <p><strong>Estado:</strong> {{ characterDetail.status }}</p>
+        <p><strong>Género:</strong> {{ characterDetail.gender }}</p>
+        <p><strong>Origen:</strong> {{ characterDetail.origin.name }}</p>
+        <p><strong>Ubicación actual:</strong> {{ characterDetail.location.name }}</p>
     </div>
-    
-    <p><strong>Especie:</strong> {{ characterDetail.species }}</p>
-    <p><strong>Estado:</strong> {{ characterDetail.status }}</p>
-    <p><strong>Género:</strong> {{ characterDetail.gender }}</p>
-    <p><strong>Origen:</strong> {{ characterDetail.origin.name }}</p>
-    <p><strong>Ubicación actual:</strong> {{ characterDetail.location.name }}</p>
-</div>
 
-<div class="modal-footer">
-    <button type="button" class="btn btn-outline-secondary" (click)="activeModal.close()">Cerrar</button>
-</div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="activeModal.close()">Cerrar</button>
+    </div>
+}
