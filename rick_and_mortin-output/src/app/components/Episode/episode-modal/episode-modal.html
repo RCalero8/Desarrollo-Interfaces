@@ -1,28 +1,42 @@
 <div class="modal-header">
-    <h4 class="modal-title">{{ episodeDetail?.name }}</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss()"></button>
+  <h4 class="modal-title">{{ episodeDetail?.name }} ({{ episodeDetail?.episode }})</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss()"></button>
 </div>
 
-@if (episodeDetail) {
-    <div class="modal-body">
-        <p><strong>Código de episodio:</strong> {{ episodeDetail.episode }}</p>
-        <p><strong>Fecha de emisión:</strong> {{ episodeDetail.air_date }}</p>
-        <p><strong>Total de personajes:</strong> {{ episodeDetail.characters.length }}</p>
-        <p><strong>Fecha de creación:</strong> {{ episodeDetail.created | date:'shortDate' }}</p>
+<div class="modal-body">
+  <p class="text-muted mb-3">
+    <strong>Fecha de emisión:</strong> {{ episodeDetail?.air_date }}
+  </p>
 
-        @if (episodeDetail.characters.length > 0) {
-            <div class="mt-3">
-                <strong>Personajes que aparecen:</strong>
-                <ul class="list-group list-group-flush mt-2 style-scroll" style="max-height: 150px; overflow-y: auto;">
-                    @for (characterUrl of episodeDetail.characters; track characterUrl) {
-                        <li class="list-group-item small text-muted">{{ characterUrl }}</li>
-                    }
-                </ul>
-            </div>
-        }
-    </div>
+  <h5 class="fw-bold mb-3">Personajes en este episodio:</h5>
 
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary" (click)="activeModal.close()">Cerrar</button>
+  @if (isLoading()) {
+    <div class="text-center py-4">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Cargando personajes...</span>
+      </div>
     </div>
-}
+  } @else {
+    <div class="row g-3" style="max-height: 400px; overflow-y: auto;">
+      @for (char of characters(); track char.id) {
+        <div class="col-4 col-sm-3 text-center">
+          <img 
+            [src]="char.image" 
+            [alt]="char.name" 
+            class="img-fluid rounded-circle shadow-sm mb-1"
+            style="width: 70px; height: 70px; object-fit: cover;"
+          />
+          <p class="small text-truncate mb-0" [title]="char.name">
+            {{ char.name }}
+          </p>
+        </div>
+      } @empty {
+        <p class="text-muted">No se encontraron personajes para este episodio.</p>
+      }
+    </div>
+  }
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Cerrar</button>
+</div>
