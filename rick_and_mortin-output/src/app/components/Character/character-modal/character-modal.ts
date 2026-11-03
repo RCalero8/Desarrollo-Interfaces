@@ -1,7 +1,7 @@
 import { Component, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Character } from '../../interface/character-list-response';
+import { Character } from '../../../interface/character-list-response';
 
 @Component({
   imports: [CommonModule], 

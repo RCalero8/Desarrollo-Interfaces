@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { CharacterItemComponet } from '../character-item-componet/character-item-componet';
-import { CharacterService } from '../../service/character-service';
-import { Character } from '../../interface/character-list-response';
+import { CharacterService } from '../../../service/character-service';
+import { Character } from '../../../interface/character-list-response';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CharacterModal } from '../character-modal/character-modal';
 @Component({

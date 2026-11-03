@@ -1,5 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { Character } from '../../interface/character-list-response';
+import { Character } from '../../../interface/character-list-response';
 
 @Component({
   imports: [],

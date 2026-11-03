@@ -1,0 +1,10 @@
+<div class="container">
+    <h1 class="display-1">Episodes Rick and Morty</h1>
+    <div class="row g-4">
+        @for (item of episodeList(); track item.id){
+        <div class="col-12 col-md-6 col-lg-4">
+            <app-episode-item [episode]="item" (episodeClicked)="openEpisodeModal($event)"></app-episode-item>
+        </div>
+        }
+    </div>
+</div>

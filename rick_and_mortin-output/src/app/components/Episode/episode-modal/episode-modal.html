@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{ episodeDetail?.name }}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss()"></button>
+</div>
+
+@if (episodeDetail) {
+    <div class="modal-body">
+        <p><strong>Código de episodio:</strong> {{ episodeDetail.episode }}</p>
+        <p><strong>Fecha de emisión:</strong> {{ episodeDetail.air_date }}</p>
+        <p><strong>Total de personajes:</strong> {{ episodeDetail.characters.length }}</p>
+        <p><strong>Fecha de creación:</strong> {{ episodeDetail.created | date:'shortDate' }}</p>
+
+        @if (episodeDetail.characters.length > 0) {
+            <div class="mt-3">
+                <strong>Personajes que aparecen:</strong>
+                <ul class="list-group list-group-flush mt-2 style-scroll" style="max-height: 150px; overflow-y: auto;">
+                    @for (characterUrl of episodeDetail.characters; track characterUrl) {
+                        <li class="list-group-item small text-muted">{{ characterUrl }}</li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="activeModal.close()">Cerrar</button>
+    </div>
+}

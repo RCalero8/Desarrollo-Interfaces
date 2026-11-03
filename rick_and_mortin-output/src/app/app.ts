@@ -1,13 +1,15 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CharacterListComponet } from './components/character-list-componet/character-list-componet';
+import { NavbarComponents } from './components/navbar-components/navbar-components'; // Ajusta la ruta a tu archivo
 
 @Component({
-  imports: [RouterOutlet,CharacterListComponet],
   selector: 'app-root',
-  styleUrl: './app.css',
+  standalone: true,
+  imports: [
+    RouterOutlet,
+    NavbarComponents // <-- Añádelo aquí
+  ],
   templateUrl: './app.html',
+  styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('rick_and_mortin-output');
-}
+export class AppComponent {}
