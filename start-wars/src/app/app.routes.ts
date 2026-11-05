@@ -1,0 +1,7 @@
+import { Routes } from '@angular/router';
+import { CharacterList } from './componenets/character-list/character-list';
+
+export const routes: Routes = [
+  { path: '', component: CharacterList },
+  { path: '**', redirectTo: '' },
+];

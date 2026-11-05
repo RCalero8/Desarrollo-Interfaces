@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ characterDetail?.name }}</h4>
+  <button type="button" class="btn-close" aria-label="Cerrar" (click)="activeModal.dismiss()"></button>
+</div>
+<div class="modal-body">
+  @if (characterDetail; as c) {
+    <ul class="list-unstyled mb-0">
+      <li><strong>Altura:</strong> {{ c.height }} cm</li>
+      <li><strong>Peso:</strong> {{ c.mass }} kg</li>
+      <li><strong>Color de pelo:</strong> {{ c.hair_color }}</li>
+      <li><strong>Color de piel:</strong> {{ c.skin_color }}</li>
+      <li><strong>Color de ojos:</strong> {{ c.eye_color }}</li>
+      <li><strong>Año de nacimiento:</strong> {{ c.birth_year }}</li>
+      <li><strong>Género:</strong> {{ c.gender }}</li>
+    </ul>
+  }
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Cerrar</button>
+</div>

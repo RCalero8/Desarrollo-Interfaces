@@ -1,0 +1,13 @@
+<div class="container">
+  <h1 class="display-1">Personajes de Star Wars</h1>
+  <div class="row g-4">
+    @for (item of list(); track item.url) {
+      <div class="col-12 col-md-6 col-lg-4">
+        <app-character-item
+          [character]="item"
+          (characterClicked)="openCharacterModal($event)"
+        ></app-character-item>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,9 @@
+@if (character(); as c) {
+  <div class="card h-100" role="button" (click)="emitCharacterClicked()">
+    <div class="card-body">
+      <h5 class="card-title">{{ c.name }}</h5>
+      <p class="card-text mb-0">Altura: {{ c.height }} cm</p>
+      <p class="card-text">Año de nacimiento: {{ c.birth_year }}</p>
+    </div>
+  </div>
+}
