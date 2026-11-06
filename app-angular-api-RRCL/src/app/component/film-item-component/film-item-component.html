@@ -1,0 +1,9 @@
+@if (film(); as f) {
+  <div class="card h-100" role="button" (click)="emitFilmClicked">
+    <div class="card-body">
+      <h5 class="card-title">{{ f.title }}</h5>
+      <h6 class="card-subtitle mb-2 text-body-seconda">{{f.director}}</h6>
+      <p class="card-text">Pelicula: {{ f.episode_id}}</p>
+    </div>
+  </div>
+}

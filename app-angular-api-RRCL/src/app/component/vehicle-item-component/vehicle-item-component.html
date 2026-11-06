@@ -1,0 +1,9 @@
+@if (vehicle(); as v) {
+  <div class="card h-100" role="button" (click)="emitVehicleClicked">
+    <div class="card-body">
+      <h5 class="card-title">{{ v.name }}</h5>
+      <h6 class="card-subtitle mb-2 text-body-seconda">{{v.model}}</h6>
+      <p class="card-text">Pelicula: {{ v.films }}</p>
+    </div>
+  </div>
+}

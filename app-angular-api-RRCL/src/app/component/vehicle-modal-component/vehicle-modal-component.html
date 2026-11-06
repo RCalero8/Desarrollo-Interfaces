@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ vehicleDetail?.name }}</h4>
+  <button type="button" class="btn-close" aria-label="Cerrar" (click)="activeModal.dismiss()"></button>
+</div>
+<div class="modal-body">
+  @if (vehicleDetail; as v) {
+    <ul class="list-unstyled mb-0">
+      <li><strong>Modelo:</strong> {{ v.model }} cm</li>
+      <li><strong>Manufactura:</strong> {{ v.manufacturer }} kg</li>
+      <li><strong>Pasajeros:</strong> {{ v.passengers }}</li>
+      <li><strong>Pelicula donde salio:</strong> {{ v.films }}</li>
+    </ul>
+  }
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Cerrar</button>
+</div>
+
